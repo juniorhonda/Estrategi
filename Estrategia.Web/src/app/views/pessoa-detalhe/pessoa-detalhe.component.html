@@ -1,0 +1,69 @@
+<form class="row g-3">
+    <div class="col-md-12">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" name="nome" placeholder="Ex. João" [(ngModel)]="pessoa.nome" />
+    </div>
+    <div class="col-md-6">
+        <label for="sobrenome" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" name="sobrenome" placeholder="Ex. da Silva"
+            [(ngModel)]="pessoa.sobrenome" />
+    </div>
+    <div class="col-6">
+        <label for="nacionalidade" class="form-label">Nacionalidade</label>
+        <input type="text" class="form-control" name="nacionalidade" placeholder="Ex. brasileira"
+            [(ngModel)]="pessoa.nacionalidade" />
+    </div>
+    <div class="col-md-4">
+        <label for="cep" class="form-label">Cep</label>
+        <input type="text" class="form-control" name="cep" placeholder="Ex. 01011-100" mask="00000-000"
+            [(ngModel)]="pessoa.cep" (ngModelChange)="pessoa.cep.length == 8 ? consultarCEP() : null" />
+    </div>
+    <div class="col-md-4">
+        <label for="estado" class="form-label">Estado</label>
+        <input type="text" class="form-control" disabled name="estado" [(ngModel)]="pessoa.estado" />
+    </div>
+    <div class="col-md-4">
+        <label for="cidade" class="form-label">Cidade</label>
+        <input type="text" class="form-control" disabled name="cidade" [(ngModel)]="pessoa.cidade" />
+    </div>
+    <div class="col-md-9">
+        <label for="logradouro" class="form-label">Logradouro</label>
+        <input type="text" class="form-control" disabled name="logradouro" [(ngModel)]="pessoa.logradouro" />
+    </div>
+    <div class="col-md-1">
+        <label for="numero" class="form-label">Numero</label>
+        <input type="text" class="form-control" name="numero" [(ngModel)]="pessoa.numero" placeholder="Ex. 253" />
+    </div>
+    <div class="col-md-2">
+        <label for="complemento" class="form-label">Complemento</label>
+        <input type="text" class="form-control" name="complemento" placeholder="Ex. ap. 100"
+            [(ngModel)]="pessoa.complemento" />
+    </div>
+    <div class="col-4">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" class="form-control" name="cpf" placeholder="Ex. 999.999.999-61" mask="000.000.000-00"
+            [(ngModel)]="pessoa.cpf" />
+    </div>
+
+    <div class="col-md-4">
+        <label for="email" class="form-label">email</label>
+        <input type="text" class="form-control" name="email" placeholder="Ex. email@email.com"
+            [(ngModel)]="pessoa.email" />
+    </div>
+    <div class="col-md-4">
+        <label for="telefone" class="form-label">telefone</label>
+        <input type="text" class="form-control" name="telefone" placeholder="Ex. (11)2020-3030" mask="(00) 0?0000-0000"
+            [(ngModel)]="pessoa.telefone" />
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" [disabled]="loading" (click)="pessoa.id == 0 ?criar() :salvar()">
+            <div *ngIf="loading">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true">
+                </span>
+                Carregando...
+            </div>
+            <div *ngIf="!loading">Salvar</div>
+        </button>
+        <button type="button" class="btn btn-danger" (click)="voltar()">Voltar</button>
+    </div>
+</form>

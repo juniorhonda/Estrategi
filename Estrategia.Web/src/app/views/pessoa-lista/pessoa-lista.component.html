@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Nacionalidade</th>
+            <th scope="col">CEP</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Logradouro</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of pessoasData; let i = index">
+            <th>{{item.nome}}</th>
+            <th>{{item.sobrenome}}</th>
+            <th>{{item.cpf}}</th>
+            <th>{{item.nacionalidade}}</th>
+            <th>{{item.cep}}</th>
+            <th>{{item.estado}}</th>
+            <th>{{item.cidade}}</th>
+            <th>{{item.logradouro}}</th>
+            <th>{{item.email}}</th>
+            <th>{{item.telefone}}</th>
+            <th><a (click)="alterar(item.id)" class="btn btn-primary">Alterar</a> </th>
+            <th><a (click)="excluir(item)" class="btn btn-primary">Alterar</a> </th>
+        </tr>
+    </tbody>
+</table>
+<a (click)="alterar(0)" class="btn btn-success">Novo</a>
